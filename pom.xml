@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>visitor-management-system</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>Visitor Management System</name>
+    <description>A simple JavaFX + MySQL desktop application for managing visitors.</description>
+
+    <properties>
+        <!-- Java version the code is compiled for (any JDK 17 or newer works). -->
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- JavaFX version (the UI toolkit). -->
+        <javafx.version>25.0.4</javafx.version>
+
+        <!-- Ikonli (free Apache-2.0 icon fonts for JavaFX). -->
+        <ikonli.version>12.3.1</ikonli.version>
+
+        <!-- The class that starts the application. -->
+        <main.class>ui.Main</main.class>
+    </properties>
+
+    <dependencies>
+        <!-- JavaFX (user interface). Maven downloads it automatically. -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!--
+          Ikonli: scalable vector icons rendered from a bundled icon font.
+          Free and open source (Apache License 2.0), works offline because the
+          font is packaged inside the jar. Used for the sidebar and card icons.
+        -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-javafx</artifactId>
+            <version>${ikonli.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-fontawesome5-pack</artifactId>
+            <version>${ikonli.version}</version>
+        </dependency>
+
+        <!-- MySQL JDBC driver (connection between Java and MySQL). -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.7.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--
+              javafx-maven-plugin lets you start the app with:
+                  mvnw javafx:run
+              It knows how to launch JavaFX correctly.
+            -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
